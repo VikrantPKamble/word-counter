@@ -1,0 +1,209 @@
+:root{
+  --bg:#212936;           /* main background */
+  --panel:#19202c;        /* textarea & stat background */
+  --muted:#bfc7d4;        /* light grey text */
+  --accent:#4ea3ff;
+  --radius:12px;
+  --gap:18px;
+  --box-shadow: rgba(0,0,0,0.35) 0 6px 18px;
+  --glass: rgba(255,255,255,0.02);
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family:'Poppins',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.app{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding:48px 20px;
+  gap:30px;
+}
+
+/* Header */
+.app-header{
+  width:100%;
+  max-width:980px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.brand-icon{
+  height:52px;
+  width:52px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg, rgba(78,163,255,0.12), rgba(82,180,136,0.08));
+  border-radius:10px;
+  color:var(--muted);
+  font-size:20px;
+}
+.brand h1{
+  margin:0;
+  font-size:22px;
+  font-weight:600;
+  color:#f3f6fb;
+}
+
+/* Input section */
+.input-section{
+  width:100%;
+  max-width:980px;
+}
+.input-label{
+  display:block;
+  margin-bottom:10px;
+  color:var(--muted);
+  font-weight:600;
+  font-size:13px;
+}
+
+/* Textarea wrapper to position buttons */
+.textarea-wrap{
+  position:relative;
+  width:100%;
+}
+textarea{
+  width:100%;
+  min-height:180px;
+  max-height:420px;
+  resize:vertical;
+  padding:18px;
+  padding-top:18px;
+  padding-right:72px; /* leave room for buttons */
+  background:var(--panel);
+  color:#e8eef8;
+  border:0;
+  outline:0;
+  border-radius:12px;
+  box-shadow:var(--box-shadow);
+  font-size:15px;
+  line-height:1.5;
+  transition:box-shadow .12s, border .12s;
+  caret-color:var(--accent);
+}
+
+/* subtle blue outline on focus */
+textarea:focus{
+  box-shadow: 0 6px 24px rgba(30,120,255,0.08), 0 0 0 3px rgba(78,163,255,0.07);
+}
+
+/* small icon buttons */
+.textarea-actions{
+  position:absolute;
+  top:10px;
+  right:10px;
+  display:flex;
+  gap:8px;
+  z-index:2;
+}
+.icon-btn{
+  height:36px;
+  width:36px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:rgba(255,255,255,0.02);
+  border:none;
+  color:var(--muted);
+  cursor:pointer;
+  font-size:14px;
+  transition:transform .08s ease, background .08s;
+  backdrop-filter: blur(4px);
+}
+.icon-btn:active{ transform: scale(.98) }
+.icon-btn:hover{ background: rgba(255,255,255,0.03) }
+
+/* Stats section */
+.stats-section{
+  width:100%;
+  max-width:980px;
+}
+.stats-title{
+  margin:0 0 14px 0;
+  color:#f3f6fb;
+  font-size:16px;
+  font-weight:600;
+}
+
+/* Responsive grid of 5 boxes */
+.stats-grid{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:var(--gap);
+}
+
+/* make responsive: collapse to 2-3 cols on small screens */
+@media (max-width:920px){
+  .stats-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width:640px){
+  .stats-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* stat box */
+.stat-box{
+  background:var(--panel);
+  border-radius:12px;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:flex-start;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  min-height:110px;
+}
+
+/* icon */
+.stat-icon{
+  height:40px;
+  width:40px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  color:white;
+  font-size:16px;
+  opacity:0.98;
+}
+
+/* distinct colors */
+.stat-icon-green{ background: linear-gradient(180deg,#21c07a,#1fa66b); }
+.stat-icon-blue{ background: linear-gradient(180deg,#3f98ff,#2f7ce8); }
+.stat-icon-purple{ background: linear-gradient(180deg,#9b6bff,#7b4cff); }
+.stat-icon-orange{ background: linear-gradient(180deg,#ff9a3d,#ff7a1a); }
+.stat-icon-lightblue{ background: linear-gradient(180deg,#6bd6ff,#3bb3ff); }
+
+/* number and label */
+.stat-value{
+  font-size:28px;
+  font-weight:700;
+  color:#f7fafc;
+}
+.stat-label{
+  font-size:11px;
+  font-weight:600;
+  color:var(--muted);
+  letter-spacing:0.06em;
+}
+
+/* small screens: increase readability and spacing */
+@media (max-width:420px){
+  .brand h1{ font-size:18px; }
+  textarea{ min-height:140px; }
+  .stat-value{ font-size:22px; }
+}

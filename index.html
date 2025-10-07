@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Real-time Character Counter</title>
+
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (icons) -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+        <h1>Real-time Character Counter</h1>
+      </div>
+    </header>
+
+    <section class="input-section">
+      <label for="text-input" class="input-label">Input Text</label>
+      <div class="textarea-wrap">
+        <textarea id="text-input" placeholder="Type or paste text here..."></textarea>
+
+        <!-- top-right small icon buttons inside textarea wrapper -->
+        <div class="textarea-actions" aria-hidden="false">
+          <button id="clear-btn" class="icon-btn" title="Clear text" aria-label="Clear text">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          <button id="copy-btn" class="icon-btn" title="Copy text" aria-label="Copy text">
+            <i class="fa-solid fa-copy"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <h2 class="stats-title">Statistics</h2>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-icon stat-icon-green"><i class="fa-solid fa-list"></i></div>
+          <div class="stat-value" id="words-value">0</div>
+          <div class="stat-label">WORDS</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-icon stat-icon-blue"><i class="fa-regular fa-file-lines"></i></div>
+          <div class="stat-value" id="chars-value">0</div>
+          <div class="stat-label">CHARACTERS</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-icon stat-icon-purple"><i class="fa-solid fa-ellipsis"></i></div>
+          <div class="stat-value" id="sentences-value">0</div>
+          <div class="stat-label">SENTENCES</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-icon stat-icon-orange"><i class="fa-solid fa-paragraph"></i></div>
+          <div class="stat-value" id="paragraphs-value">0</div>
+          <div class="stat-label">PARAGRAPHS</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-icon stat-icon-lightblue"><i class="fa-regular fa-clock"></i></div>
+          <div class="stat-value" id="reading-value">0s</div>
+          <div class="stat-label">READING TIME</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
